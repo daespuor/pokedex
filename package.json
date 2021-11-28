@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/daespuor/pokedex#readme",
   "dependencies": {
+    "@headlessui/react": "^1.4.2",
+    "@heroicons/react": "^1.0.5",
     "gatsby": "^4.1.0",
     "gatsby-plugin-image": "^2.1.0",
     "gatsby-plugin-sharp": "^4.1.0",
