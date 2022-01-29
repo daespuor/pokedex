@@ -1,16 +1,32 @@
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import React from "react";
+import ResourcesDropdown from "./ResourcesDropdown";
+import ToggleSwitch from "./ToggleSwitch";
 
 export default function Header() {
+  const data = useStaticQuery(graphql`
+    query GetAllMDX {
+      allMdx {
+        nodes {
+          id
+          frontmatter {
+            slug
+            title
+          }
+        }
+      }
+    }
+  `);
+  const resources = data?.allMdx?.nodes || [];
   return (
-    <header className="flex justify-between items-center bg-primary p-5 text-secondary">
+    <header className="flex justify-between items-center bg-primary dark:bg-darkPrimary p-5 text-secondary dark:text-darkSecondary">
       <h1 className="text-3xl">
         <Link to="/">Pokedex</Link>
       </h1>
       <nav>
         <ul className="flex space-x-2">
-          <li>Home</li>
-          <li>Dashboard</li>
+          <ResourcesDropdown resources={resources} />
+          <ToggleSwitch />
         </ul>
       </nav>
     </header>

@@ -5,7 +5,7 @@ import CategoryBadge from "./CategoryBadge";
 
 export default function PokemonCard({ pokemon }) {
   return (
-    <article className="border-primary border-2 w-72 m-5 overflow-hidden rounded-md bg-white">
+    <article className="border-primary dark:border-darkPrimary border-2 w-72 m-5 overflow-hidden rounded-md bg-white dark:bg-darkCard dark:text-white">
       <Link to={`/${pokemon.slug.current}`}>
         <div className="p-3">
           <GatsbyImage
@@ -17,6 +17,7 @@ export default function PokemonCard({ pokemon }) {
         <div className="flex justify-center space-x-4">
           {pokemon.category.map((category) => (
             <CategoryBadge
+              key={category.name}
               categoryName={category.name}
               color={category.color}
             />

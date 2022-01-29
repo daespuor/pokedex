@@ -48,13 +48,16 @@ export default function SanityPokemon({ data }) {
   const [currentZone, setCurrentZone] = useState();
   const pokemon = data?.sanityPokemon;
   return (
-    <Layout>
+    <Layout
+      title={`Pokemon ${pokemon.name}`}
+      description={`${pokemon.description}`}
+    >
       <ZoneDialog
         open={openZoneDetails}
         setOpen={setOpenZoneDetails}
         zone={currentZone}
       />
-      <section className="grid grid-cols-1 md:grid-cols-2">
+      <section className="grid grid-cols-1 md:grid-cols-2 dark:text-white">
         <div className="p-3 w-full md:w-10/12">
           <GatsbyImage
             image={pokemon.image.asset.gatsbyImageData}
@@ -62,7 +65,9 @@ export default function SanityPokemon({ data }) {
           />
         </div>
         <article className="text-left">
-          <h2 className="text-4xl text-primary">{pokemon.name}</h2>
+          <h2 className="text-4xl text-primary dark:text-darkPrimary">
+            {pokemon.name}
+          </h2>
           <div className="flex justify-start space-x-4 mt-4">
             {pokemon.category.map((category) => (
               <CategoryBadge
@@ -73,7 +78,9 @@ export default function SanityPokemon({ data }) {
             ))}
           </div>
           <div className="mt-10">
-            <h3 className="text-xl text-primary">Zones</h3>
+            <h3 className="text-xl text-primary dark:text-darkPrimary">
+              Zones
+            </h3>
             <div className="flex justify-start space-x-4">
               {pokemon.zone.map((zone) => (
                 <div className="w-1/5" key={zone.name}>
@@ -88,13 +95,17 @@ export default function SanityPokemon({ data }) {
                       alt={zone.name}
                     />
                   </button>
-                  <h3 className="text-primary">{zone.name}</h3>
+                  <h3 className="text-primary dark:text-darkPrimary">
+                    {zone.name}
+                  </h3>
                 </div>
               ))}
             </div>
           </div>
           <div className="mt-10">
-            <h3 className="text-xl text-primary">Attacks</h3>
+            <h3 className="text-xl text-primary dark:text-darkPrimary">
+              Attacks
+            </h3>
             <ul>
               {pokemon.attacks.map((a) => (
                 <ListElement content={a} key={a} />
@@ -102,7 +113,9 @@ export default function SanityPokemon({ data }) {
             </ul>
           </div>
           <div className="mt-10">
-            <h3 className="text-xl text-primary">Strengths</h3>
+            <h3 className="text-xl text-primary dark:text-darkPrimary">
+              Strengths
+            </h3>
             <ul>
               {pokemon.strengths.map((s) => (
                 <ListElement content={s.name} key={s.name} />
@@ -110,7 +123,9 @@ export default function SanityPokemon({ data }) {
             </ul>
           </div>
           <div className="mt-10">
-            <h3 className="text-xl text-primary">Weaknesses</h3>
+            <h3 className="text-xl text-primary dark:text-darkPrimary">
+              Weaknesses
+            </h3>
             <ul>
               {pokemon.weaknesses.map((w) => (
                 <ListElement content={w.name} key={w.name} />
@@ -118,7 +133,9 @@ export default function SanityPokemon({ data }) {
             </ul>
           </div>
           <div className="mt-10">
-            <h3 className="text-xl text-primary">Description</h3>
+            <h3 className="text-xl text-primary dark:text-darkPrimary">
+              Description
+            </h3>
             <p>{pokemon.description}</p>
           </div>
         </article>

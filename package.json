@@ -21,15 +21,25 @@
   },
   "homepage": "https://github.com/daespuor/pokedex#readme",
   "dependencies": {
+    "@apollo/client": "^3.5.7",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
     "gatsby": "^4.1.0",
     "gatsby-plugin-image": "^2.1.0",
+    "gatsby-plugin-mdx": "^2.11.0",
+    "gatsby-plugin-page-creator": "^4.3.0",
+    "gatsby-plugin-react-helmet": "^5.4.0",
     "gatsby-plugin-sharp": "^4.1.0",
+    "gatsby-remark-images": "^5.11.0",
+    "gatsby-source-filesystem": "^4.3.0",
     "gatsby-source-sanity": "^7.1.0",
     "gatsby-transformer-sharp": "^4.1.0",
+    "isomorphic-fetch": "^3.0.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",

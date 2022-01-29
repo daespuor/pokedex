@@ -32,7 +32,9 @@ export default function Pokedex({ data }) {
   const pokemons = data?.allSanityPokemon?.nodes || [];
   return (
     <Layout>
-      <h2 className="text-4xl text-primary">Pokemon List</h2>
+      <h2 className="text-4xl text-primary dark:text-darkPrimary">
+        Pokemon List
+      </h2>
       <section className="flex  my-12 flex-wrap">
         {pokemons.map((pokemon) => (
           <PokemonCard key={pokemon.id} pokemon={pokemon} />

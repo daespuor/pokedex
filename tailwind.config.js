@@ -4,13 +4,18 @@ const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     colors: {
       ...colors,
       secondary: "#F0F8F7",
       primary: "#335C58",
-      accent: "#7AD8CD"
+      accent: "#7AD8CD",
+      fireAccent: "#FF7A00",
+      darkSecondary: "#535858",
+      darkPrimary: "#F0F8F7",
+      darkCard: "#8D9897",
+      darkFireAccent: "#CAA37F",
     },
     zIndex: {
       ...config.theme.zIndex,
@@ -18,7 +23,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        layout: "url('../assets/kanto.png')",
+        layout: "url('../assets/images/kanto.png')",
       },
     },
   },
@@ -55,7 +60,7 @@ module.exports = {
             const className = `.gradient-mask-${shorthand}-${step}`;
             return {
               [className]: {
-                maskImage: `linear-gradient(${direction}, transparent ${step}, #F0F8F7)`,
+                maskImage: `linear-gradient(${direction}, transparent ${step}, #535858)`,
               },
             };
           });
@@ -67,7 +72,7 @@ module.exports = {
         },
         {}
       );
-      addUtilities(utilities);
+      addUtilities(utilities, ["dark"]);
     }),
   ],
 };

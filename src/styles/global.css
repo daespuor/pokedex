@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-    @apply bg-secondary;
+  @apply bg-secondary dark:bg-darkSecondary;
+}
+
+.mdx-layout {
+  @apply grid gap-4 dark:text-secondary;
+}
+
+.mdx-layout h1 {
+  @apply text-4xl text-primary dark:text-secondary;
+}
+
+.mdx-layout b {
+  @apply text-primary dark:text-darkPrimary;
 }
