@@ -26,6 +26,7 @@
     "@heroicons/react": "^1.0.5",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "d3": "^7.3.0",
     "gatsby": "^4.1.0",
     "gatsby-plugin-image": "^2.1.0",
     "gatsby-plugin-mdx": "^2.11.0",

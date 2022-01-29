@@ -6,6 +6,7 @@ export const GET_ALL_POKEMON_LOCATIONS = gql`
       id
       Pokemon {
         name
+        description
         slug {
           current
         }

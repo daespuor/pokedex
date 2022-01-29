@@ -24,7 +24,10 @@ export default function Header() {
         <Link to="/">Pokedex</Link>
       </h1>
       <nav>
-        <ul className="flex space-x-2">
+        <ul className="flex space-x-2 items-center">
+          <li>
+            <Link to="/map">Kanto Map</Link>
+          </li>
           <ResourcesDropdown resources={resources} />
           <ToggleSwitch />
         </ul>
