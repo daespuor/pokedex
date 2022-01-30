@@ -22,6 +22,7 @@
   "homepage": "https://github.com/daespuor/pokedex#readme",
   "dependencies": {
     "@apollo/client": "^3.5.7",
+    "@auth0/auth0-react": "^1.9.0",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "@mdx-js/mdx": "^1.6.22",

@@ -17,7 +17,7 @@ export default function ToggleSwitch() {
   return (
     <Switch.Group>
       <div className="flex items-center">
-        <Switch.Label className="mr-4">Dark Mode</Switch.Label>
+        <Switch.Label className="mr-4"></Switch.Label>
         <Switch
           checked={enabled}
           onChange={setEnabled}
