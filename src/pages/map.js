@@ -6,6 +6,7 @@ import mapImage from "../assets/images/kanto-map.png";
 import { GET_ALL_POKEMON_LOCATIONS } from "../queries/getAllPokemonLocations";
 import { useState } from "react";
 import AddPokemonLocation from "../components/AddPokemonLocation";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const popupContentDefault = {
   title: "Pokemon title",
@@ -16,6 +17,7 @@ export default function Map() {
   const width = 800;
   const height = 600;
   const { data } = useQuery(GET_ALL_POKEMON_LOCATIONS);
+  const { isAuthenticated } = useAuth0();
   const [openAddLocation, setOpenAddLocation] = useState(false);
   const [svg, setSvg] = useState();
   const [popupContent, setPopupContent] = useState(popupContentDefault);
@@ -49,7 +51,7 @@ export default function Map() {
           const pokemon = d.target.__data__.Pokemon;
           d3.select(this).style("transform", "scale(1.1)");
           d3.select("#popup")
-            .style("left", `${d.x + 100}px`)
+            .style("left", `${d.x + 50}px`)
             .style("top", `${window.scrollY + d.y - 60}px`)
             .style("display", "block");
           setPopupContent({
@@ -92,17 +94,19 @@ export default function Map() {
       title="Kanto Region"
       description="This is the map of the Kanto region"
     >
-      <button
-        className="rounded-md  ml-2 mb-10 bg-fireAccent hover:bg-darkSecondary  dark:bg-accent dark:hover:bg-darkPrimary text-white dark:hover:text-darkSecondary  py-2 px-4 font-bold"
-        onClick={() => setOpenAddLocation(true)}
-      >
-        Add Location +
-      </button>
+      {isAuthenticated && (
+        <button
+          className="rounded-md  ml-2 mb-10 bg-fireAccent hover:bg-darkSecondary  dark:bg-accent dark:hover:bg-darkPrimary text-white dark:hover:text-darkSecondary  py-2 px-4 font-bold"
+          onClick={() => setOpenAddLocation(true)}
+        >
+          Add Location +
+        </button>
+      )}
       <div className="flex  justify-center  mx-auto w-full overflow-hidden ">
         <svg width={width} viewBox={`0 0 ${width} ${height}`} id="map"></svg>
         <div
           id="popup"
-          className="w-3/12 p-5 text-base bg-white dark:bg-darkSecondary rounded-md absolute hidden transition-all duration-75 ease-out border-darkSecondary border-4 dark:border-white"
+          className="w-2/3 md:w-3/12 p-5 text-base bg-white dark:bg-darkSecondary rounded-md absolute hidden transition-all duration-75 ease-out border-darkSecondary border-4 dark:border-white"
         >
           <h3 className="text-fireAccent dark:text-darkFireAccent">
             {popupContent.title}
