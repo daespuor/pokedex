@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 body {
-  @apply bg-secondary dark:bg-darkSecondary;
+  @apply bg-bodyBackground dark:bg-darkBodyBackground;
 }
 
 .mdx-layout {
-  @apply grid gap-4 dark:text-secondary;
+  @apply grid gap-4 dark:text-darkBodyText;
 }
 
 .mdx-layout h1 {
-  @apply text-4xl text-primary dark:text-secondary;
+  @apply text-4xl text-bodyText dark:text-darkBodyText;
 }
 
 .mdx-layout b {
-  @apply text-primary dark:text-darkPrimary;
+  @apply text-bodyText dark:text-darkBodyText;
 }

@@ -3,6 +3,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { MenuIcon } from "@heroicons/react/solid";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import React, { Fragment } from "react";
+import { PrimaryButton, TertiaryButton } from "./Button";
 import ResourcesDropdown from "./ResourcesDropdown";
 import ToggleSwitch from "./ToggleSwitch";
 
@@ -24,7 +25,7 @@ export default function Header() {
   `);
   const resources = data?.allMdx?.nodes || [];
   return (
-    <header className="flex justify-between items-center bg-primary dark:bg-darkPrimary p-5 text-secondary dark:text-darkSecondary">
+    <header className="flex justify-between items-center bg-header dark:bg-darkHeader p-5 text-headerText dark:text-darkHeaderText">
       <h1 className="text-3xl">
         <Link to="/">Pokedex</Link>
       </h1>
@@ -65,22 +66,16 @@ const HeaderOptionsDesktop = ({
       <ResourcesDropdown resources={resources} />
       {!isAuthenticated && !isLoading && (
         <li>
-          <button
-            className="rounded-md bg-fireAccent hover:bg-secondary dark:bg-darkSecondary dark:hover:bg-accent text-white hover:text-primary dark:text-white  py-2 px-4 font-bold"
-            onClick={() => loginWithRedirect()}
-          >
-            Login
-          </button>
+          <PrimaryButton handleClick={loginWithRedirect}>Login</PrimaryButton>
         </li>
       )}
       {isAuthenticated && !isLoading && (
         <li>
-          <button
-            className="rounded-md border-2 border-secondary dark:border-darkSecondary  text-white   py-2 px-4 font-bold"
-            onClick={() => logout({ returnTo: window.location.origin })}
+          <TertiaryButton
+            handleClick={() => logout({ returnTo: window.location.origin })}
           >
             Log Out
-          </button>
+          </TertiaryButton>
         </li>
       )}
       <ToggleSwitch />
@@ -99,15 +94,12 @@ const HeaderOptionsMobile = ({
     <Menu as="div" className="relative inline-block text-left">
       <Menu.Button
         className="inline-flex justify-center w-full px-4 py-2 
-      text-sm font-medium text-white bg-black dark:text-darkSecondary
+      text-sm font-medium text-buttonText bg-black 
       rounded-md bg-opacity-20 hover:bg-opacity-30 
       focus:outline-none focus-visible:ring-2 
       focus-visible:ring-white focus-visible:ring-opacity-75"
       >
-        <MenuIcon
-          className="w-full h-5  text-violet-200 hover:text-violet-100 dark:text-darkSecondary"
-          aria-hidden="true"
-        />
+        <MenuIcon className="w-full h-5  text-buttonText" aria-hidden="true" />
       </Menu.Button>
       <Transition
         as={Fragment}
@@ -121,7 +113,7 @@ const HeaderOptionsMobile = ({
         <Menu.Items
           as="ul"
           className="absolute right-0 w-56 mt-2 origin-top-right
-         bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1
+         bg-menuItemBackground dark:bg-darkMenuItemBackground divide-y divide-gray-100 rounded-md shadow-lg ring-1
           ring-black ring-opacity-5 focus:outline-none z-20"
         >
           <Menu.Item as="li">
@@ -130,15 +122,15 @@ const HeaderOptionsMobile = ({
                 to="/map"
                 className={`${
                   active
-                    ? "bg-fireAccent text-white dark:bg-darkFireAccent"
-                    : "text-primary"
+                    ? "bg-menuItemBackgroundHover text-menuItemTextHover dark:bg-darkMenuItemBackgroundHover dark:text-darkMenuItemTextHover"
+                    : "text-menuItemText bg-menuItemBackground"
                 } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
               >
                 Kanto Map
               </Link>
             )}
           </Menu.Item>
-          <Menu.Item as="li" className="p-2 text-darkCard text-sm">
+          <Menu.Item as="li" className="p-2 text-dividerText text-sm">
             Resources
           </Menu.Item>
           {resources.map((r) => (
@@ -148,8 +140,8 @@ const HeaderOptionsMobile = ({
                   to={r.frontmatter.slug}
                   className={`${
                     active
-                      ? "bg-fireAccent text-white dark:bg-darkFireAccent"
-                      : "text-primary"
+                      ? "bg-menuItemBackgroundHover text-menuItemTextHover dark:bg-darkMenuItemBackgroundHover dark:text-darkMenuItemTextHover"
+                      : "text-menuItemText bg-menuItemBackground"
                   } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                 >
                   {r.frontmatter.title}
@@ -158,30 +150,20 @@ const HeaderOptionsMobile = ({
             </Menu.Item>
           ))}
           {!isAuthenticated && !isLoading && (
-            <Menu.Item
-              as="li"
-              className="p-2 text-darkSecondary dark:text-darkPrimary flex justify-around"
-            >
-              <button
-                className="rounded-md bg-fireAccent hover:bg-secondary dark:bg-darkSecondary dark:hover:bg-accent text-white hover:text-primary dark:text-white  py-2 px-4 font-bold"
-                onClick={() => loginWithRedirect()}
-              >
+            <Menu.Item as="li" className="p-2 flex justify-around">
+              <PrimaryButton handleClick={loginWithRedirect}>
                 Login
-              </button>
+              </PrimaryButton>
               <ToggleSwitch />
             </Menu.Item>
           )}
           {isAuthenticated && !isLoading && (
-            <Menu.Item
-              as="li"
-              className="p-2 text-darkSecondary dark:text-darkPrimary flex justify-around"
-            >
-              <button
-                className="rounded-md border-2 border-darkSecondary  text-darkSecondary   py-2 px-4 font-bold"
-                onClick={() => logout({ returnTo: window.location.origin })}
+            <Menu.Item as="li" className="p-2  flex justify-around">
+              <TertiaryButton
+                handleClick={() => logout({ returnTo: window.location.origin })}
               >
                 Log Out
-              </button>
+              </TertiaryButton>
               <ToggleSwitch />
             </Menu.Item>
           )}

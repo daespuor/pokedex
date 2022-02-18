@@ -8,14 +8,14 @@ export default function ResourcesDropdown({ resources }) {
     <Menu as="div" className="relative inline-block text-left">
       <Menu.Button
         className="inline-flex justify-center w-full px-4 py-2 
-      text-sm font-medium text-white bg-black dark:text-darkSecondary
+      text-sm font-medium text-buttonText bg-black 
       rounded-md bg-opacity-20 hover:bg-opacity-30 
       focus:outline-none focus-visible:ring-2 
       focus-visible:ring-white focus-visible:ring-opacity-75"
       >
         Resources
         <ChevronDownIcon
-          className="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100 dark:text-darkSecondary"
+          className="w-5 h-5 ml-2 -mr-1 text-buttonText"
           aria-hidden="true"
         />
       </Menu.Button>
@@ -31,8 +31,8 @@ export default function ResourcesDropdown({ resources }) {
         <Menu.Items
           as="ul"
           className="absolute right-0 w-56 mt-2 origin-top-right
-         bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1
-          ring-black ring-opacity-5 focus:outline-none"
+         bg-menuItemBackground dark:bg-darkMenuItemBackground divide-y divide-gray-100 rounded-md shadow-lg ring-1
+          ring-black ring-opacity-5 focus:outline-none z-20"
         >
           {resources.map((r) => (
             <Menu.Item key={r.id} as="li">
@@ -41,8 +41,8 @@ export default function ResourcesDropdown({ resources }) {
                   to={r.frontmatter.slug}
                   className={`${
                     active
-                      ? "bg-fireAccent text-white dark:bg-darkFireAccent"
-                      : "text-primary"
+                      ? "bg-menuItemBackgroundHover text-menuItemTextHover dark:bg-darkMenuItemBackgroundHover dark:text-darkMenuItemTextHover"
+                      : "text-menuItemText bg-menuItemBackground"
                   } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                 >
                   {r.frontmatter.title}

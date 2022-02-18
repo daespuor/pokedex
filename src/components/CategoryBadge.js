@@ -12,11 +12,15 @@ export default function CategoryBadge({ color, categoryName }) {
       case "brown":
         return "bg-purple-500";
       default:
-        return "bg-primary";
+        return "bg-darkBodyBackground";
     }
   }, [color]);
 
   return (
-    <div className={`p-1 border-1 rounded-md ${bgClass} text-sm text-secondary`}>{categoryName}</div>
+    <div
+      className={`p-1 border-1 rounded-md ${bgClass} text-sm text-darkBodyText`}
+    >
+      {categoryName}
+    </div>
   );
 }

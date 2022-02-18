@@ -32,7 +32,7 @@ export default function Pokedex({ data }) {
   const pokemons = data?.allSanityPokemon?.nodes || [];
   return (
     <Layout>
-      <h2 className="text-4xl text-primary dark:text-darkPrimary">
+      <h2 className="text-4xl text-bodyText dark:text-darkBodyText">
         Pokemon List
       </h2>
       <section className="flex  my-12 flex-wrap">

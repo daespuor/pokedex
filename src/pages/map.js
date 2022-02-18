@@ -7,6 +7,7 @@ import { GET_ALL_POKEMON_LOCATIONS } from "../queries/getAllPokemonLocations";
 import { useState } from "react";
 import AddPokemonLocation from "../components/AddPokemonLocation";
 import { useAuth0 } from "@auth0/auth0-react";
+import { PrimaryButton } from "../components/Button";
 
 const popupContentDefault = {
   title: "Pokemon title",
@@ -95,23 +96,20 @@ export default function Map() {
       description="This is the map of the Kanto region"
     >
       {isAuthenticated && (
-        <button
-          className="rounded-md  ml-2 mb-10 bg-fireAccent hover:bg-darkSecondary  dark:bg-accent dark:hover:bg-darkPrimary text-white dark:hover:text-darkSecondary  py-2 px-4 font-bold"
-          onClick={() => setOpenAddLocation(true)}
-        >
+        <PrimaryButton handleClick={() => setOpenAddLocation(true)}>
           Add Location +
-        </button>
+        </PrimaryButton>
       )}
-      <div className="flex  justify-center  mx-auto w-full overflow-hidden ">
+      <div className="flex  justify-center  mx-auto w-full overflow-hidden mt-10">
         <svg width={width} viewBox={`0 0 ${width} ${height}`} id="map"></svg>
         <div
           id="popup"
-          className="w-2/3 md:w-3/12 p-5 text-base bg-white dark:bg-darkSecondary rounded-md absolute hidden transition-all duration-75 ease-out border-darkSecondary border-4 dark:border-white"
+          className="w-2/3 md:w-3/12 p-5 text-base bg-popupBackground dark:bg-darkPopupBackground rounded-md absolute hidden transition-all duration-75 ease-out border-darkPopupBackground border-4 dark:border-popupBackground"
         >
-          <h3 className="text-fireAccent dark:text-darkFireAccent">
+          <h3 className="text-popupTitle dark:text-darkPopupTitle">
             {popupContent.title}
           </h3>
-          <p className="text-darkSecondary dark:text-white">
+          <p className="text-popupText dark:text-darkPopupText">
             {popupContent.description}
           </p>
         </div>

@@ -38,7 +38,7 @@ export default function Modal({ children, open, setOpen }) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-secondary rounded-lg text-left  shadow-xl transform transition-all sm:my-8 sm:align-middle w-max max-w-lg md:max-w-screen-md ">
+            <div className="inline-block align-bottom bg-modalBackground dark:bg-darkModalBackground rounded-lg text-left  shadow-xl transform transition-all sm:my-8 sm:align-middle w-max max-w-lg md:max-w-screen-md ">
               {children}
             </div>
           </Transition.Child>
@@ -47,3 +47,18 @@ export default function Modal({ children, open, setOpen }) {
     </Transition.Root>
   );
 }
+
+Modal.Title = ({ children }) => (
+  <Dialog.Title
+    as="h3"
+    className="text-lg leading-6 font-medium text-modalTitle dark:text-darkModalTitle"
+  >
+    {children}
+  </Dialog.Title>
+);
+
+Modal.Description = ({ children }) => (
+  <Dialog.Description className="ml-4 dark:text-darkModalText text-modalText">
+    {children}
+  </Dialog.Description>
+);

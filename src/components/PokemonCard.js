@@ -5,7 +5,7 @@ import CategoryBadge from "./CategoryBadge";
 
 export default function PokemonCard({ pokemon }) {
   return (
-    <article className="border-primary dark:border-darkPrimary border-2 w-72 m-5 overflow-hidden rounded-md bg-white dark:bg-darkCard dark:text-white">
+    <article className="border-bodyText dark:border-darkBodyText border-2 w-72 m-5 overflow-hidden rounded-md bg-cardBackground dark:bg-darkCardBackground dark:text-darkBodyText">
       <Link to={`/${pokemon.slug.current}`}>
         <div className="p-3">
           <GatsbyImage

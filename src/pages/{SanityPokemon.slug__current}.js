@@ -57,7 +57,7 @@ export default function SanityPokemon({ data }) {
         setOpen={setOpenZoneDetails}
         zone={currentZone}
       />
-      <section className="grid grid-cols-1 md:grid-cols-2 dark:text-white">
+      <section className="grid grid-cols-1 md:grid-cols-2 dark:text-darkAltBodyText">
         <div className="p-3 w-full md:w-10/12">
           <GatsbyImage
             image={pokemon.image.asset.gatsbyImageData}
@@ -65,7 +65,7 @@ export default function SanityPokemon({ data }) {
           />
         </div>
         <article className="text-left">
-          <h2 className="text-4xl text-primary dark:text-darkPrimary">
+          <h2 className="text-4xl text-bodyText dark:text-darkAltBodyText">
             {pokemon.name}
           </h2>
           <div className="flex justify-start space-x-4 mt-4">
@@ -78,7 +78,7 @@ export default function SanityPokemon({ data }) {
             ))}
           </div>
           <div className="mt-10">
-            <h3 className="text-xl text-primary dark:text-darkPrimary">
+            <h3 className="text-xl text-bodyText dark:text-darkAltBodyText">
               Zones
             </h3>
             <div className="flex justify-start space-x-4">
@@ -95,7 +95,7 @@ export default function SanityPokemon({ data }) {
                       alt={zone.name}
                     />
                   </button>
-                  <h3 className="text-primary dark:text-darkPrimary">
+                  <h3 className="text-bodyText dark:text-darkBodyText">
                     {zone.name}
                   </h3>
                 </div>
@@ -103,7 +103,7 @@ export default function SanityPokemon({ data }) {
             </div>
           </div>
           <div className="mt-10">
-            <h3 className="text-xl text-primary dark:text-darkPrimary">
+            <h3 className="text-xl text-bodyText dark:text-darkAltBodyText">
               Attacks
             </h3>
             <ul>
@@ -113,7 +113,7 @@ export default function SanityPokemon({ data }) {
             </ul>
           </div>
           <div className="mt-10">
-            <h3 className="text-xl text-primary dark:text-darkPrimary">
+            <h3 className="text-xl text-bodyText dark:text-darkAltBodyText">
               Strengths
             </h3>
             <ul>
@@ -123,7 +123,7 @@ export default function SanityPokemon({ data }) {
             </ul>
           </div>
           <div className="mt-10">
-            <h3 className="text-xl text-primary dark:text-darkPrimary">
+            <h3 className="text-xl text-bodyText dark:text-darkAltBodyText">
               Weaknesses
             </h3>
             <ul>
@@ -133,10 +133,10 @@ export default function SanityPokemon({ data }) {
             </ul>
           </div>
           <div className="mt-10">
-            <h3 className="text-xl text-primary dark:text-darkPrimary">
+            <h3 className="text-xl text-bodyText dark:text-darkAltBodyText">
               Description
             </h3>
-            <p>{pokemon.description}</p>
+            <p className="dark:text-darkBodyText">{pokemon.description}</p>
           </div>
         </article>
       </section>
@@ -144,4 +144,6 @@ export default function SanityPokemon({ data }) {
   );
 }
 
-const ListElement = ({ content }) => <li>{content}</li>;
+const ListElement = ({ content }) => (
+  <li className="dark:text-darkBodyText">{content}</li>
+);
