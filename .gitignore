@@ -2,4 +2,4 @@
 node_modules
 public
 *.paint
-.env.development
+.env.*
