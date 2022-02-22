@@ -17,3 +17,9 @@ body {
 .mdx-layout b {
   @apply text-bodyText dark:text-darkBodyText;
 }
+
+@keyframes movePokemon {
+  100% {
+    background-position: -1300px;
+  }
+}

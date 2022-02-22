@@ -25,7 +25,7 @@ export default function Header() {
   `);
   const resources = data?.allMdx?.nodes || [];
   return (
-    <header className="flex justify-between items-center bg-header dark:bg-darkHeader p-5 text-headerText dark:text-darkHeaderText">
+    <header className="flex justify-between items-center bg-header dark:bg-darkHeader p-5 text-headerText dark:text-darkHeaderText h-20">
       <h1 className="text-3xl">
         <Link to="/">Pokedex</Link>
       </h1>

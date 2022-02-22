@@ -8,6 +8,7 @@ import { useState } from "react";
 import AddPokemonLocation from "../components/AddPokemonLocation";
 import { useAuth0 } from "@auth0/auth0-react";
 import { PrimaryButton } from "../components/Button";
+import LoadingBar from "../components/LoadingBAr";
 
 const popupContentDefault = {
   title: "Pokemon title",
@@ -17,7 +18,7 @@ const popupContentDefault = {
 export default function Map() {
   const width = 800;
   const height = 600;
-  const { data } = useQuery(GET_ALL_POKEMON_LOCATIONS);
+  const { data, loading } = useQuery(GET_ALL_POKEMON_LOCATIONS);
   const { isAuthenticated } = useAuth0();
   const [openAddLocation, setOpenAddLocation] = useState(false);
   const [svg, setSvg] = useState();
@@ -95,11 +96,13 @@ export default function Map() {
       title="Kanto Region"
       description="This is the map of the Kanto region"
     >
-      {isAuthenticated && (
-        <PrimaryButton handleClick={() => setOpenAddLocation(true)}>
-          Add Location +
-        </PrimaryButton>
-      )}
+      <div className="h-14">
+        {isAuthenticated && (
+          <PrimaryButton handleClick={() => setOpenAddLocation(true)}>
+            Add Location +
+          </PrimaryButton>
+        )}
+      </div>
       <div className="flex  justify-center  mx-auto w-full overflow-hidden mt-10">
         <svg width={width} viewBox={`0 0 ${width} ${height}`} id="map"></svg>
         <div
@@ -114,6 +117,7 @@ export default function Map() {
           </p>
         </div>
       </div>
+      <LoadingBar show={loading} />
       <AddPokemonLocation
         open={openAddLocation}
         setOpen={setOpenAddLocation}

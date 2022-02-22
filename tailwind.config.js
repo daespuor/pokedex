@@ -15,7 +15,7 @@ const theme = {
   darkSecondaryAccent: "#CC9C9C",
   tertiaryAccent: "#EBEF1C",
   darkTertiaryAccent: "#C9CA89",
-  white: "#FFFFFF",
+  white: "#FFFFFF"
 };
 
 module.exports = {
@@ -79,7 +79,9 @@ module.exports = {
       selectOptionsHoverBackground: theme.accent,
       darkSelectOptionsHoverBackground: theme.darkAccent,
       selectionOptionsHoverText: theme.darkTertiary,
-      darkSelectOptionsHoverText: theme.darkPrimary
+      darkSelectOptionsHoverText: theme.darkPrimary,
+      loadingOverlay: theme.primary,
+      darkLoadingOverlay: theme.darkSecondary,
     },
     zIndex: {
       ...config.theme.zIndex,
@@ -88,6 +90,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         layout: "url('../assets/images/kanto.png')",
+        loading: `url("../assets/images/charizard.png")`,
       },
     },
   },
